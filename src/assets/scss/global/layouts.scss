@@ -1,0 +1,19 @@
+*, ::before, ::after {
+    box-sizing: border-box;    
+    margin: 0;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: var(--lt-light);
+    transition: all .25s ease;
+}
+// Others
+.dropdown-divider {
+    border-color: var(--lt-muted-light);
+}
+
+body.dark img {
+    filter: invert(1);
+}

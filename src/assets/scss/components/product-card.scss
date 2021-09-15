@@ -1,0 +1,65 @@
+@use "../utils" as *;
+.product-card {
+    border-radius: 1.5rem;
+    border: none;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .05);
+    background-color: #ffbd0003;
+    position: relative;
+
+    .product-image {
+        .image {
+            border-radius: 1rem 1rem 0 0;
+            width: 100%;
+        }
+    }
+    .product-title {
+        /*position: relative;*/
+        &:hover {
+            &::after {
+                content: attr(data-caption);
+                background-color: black;
+                color: white;
+                font-size: 80%;
+                padding: 7px 10px;
+                border-radius: 5px;
+                width: 100%;
+                white-space: pre-wrap;
+                position: absolute;
+                left: 0;
+                top: 0;
+                margin: 0;
+            }
+        }
+    }
+    .product-price {
+        color: getColor(primary);
+    }
+    .product-add {
+        opacity: .5;
+        &:hover {
+            cursor: pointer;
+            opacity: 1;
+            transition: opacity 200ms ease-in;
+        }
+        &:not(:hover) {
+            transition: opacity 200ms ease-out;
+        }
+    }
+    .edit-product {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: var(--lt-muted);
+      color: var(--lt-lighter);
+      opacity: .5;
+      transition: all .5s ease;
+
+      cursor: pointer;
+
+      @include circle-center(2rem);
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+}

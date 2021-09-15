@@ -1,0 +1,70 @@
+.trailer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .trailer-left-button,
+  .trailer-right-button {
+    flex: 0 0 2.5rem;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    cursor: pointer;
+    transition: all 0.25s ease;
+  
+    &:hover {
+      background-color: var(--lt-input-bg);
+    }
+  }
+  .trailer-content {
+    flex: 1 1 auto;
+    width: 100%;
+    padding: var(--space-xs);
+    display: flex;
+    overflow: scroll hidden;
+    scroll-snap-type: x proximity;
+  
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  
+    span.trailer-item {
+      min-width: max-content;
+      height: auto;
+  
+      padding: var(--space-xxs) var(--space-xs);
+      background-color: var(--lt-input-bg);
+      border-radius: var(--space-lg);
+      border: 1px solid #80808025;
+  
+      font-weight: bold;
+      font-size: 0.95rem;
+      color: #808080;
+  
+      cursor: pointer;
+      display: inline-block;
+      scroll-snap-align: start;
+  
+      transition: all .25s ease;
+  
+      &:hover {
+        background-color: hsl(0, 0%, 91%);
+      }
+    }
+  }
+  .trail-skeleton {
+    background-color: var(--lt-input-bg);
+    border-radius: var(--space-xs);
+    animation: fade 0.5s ease alternate-reverse forwards infinite;
+    @keyframes fade {
+      to {
+        opacity: 0.5;
+      }
+    }
+  }

@@ -1,0 +1,88 @@
+@use "../utils/index" as *;
+
+.see {
+    border: 1px solid red;
+}
+
+.product-section {
+    border: 1px solid #80808010;
+    border-radius: 1rem;
+    height: 80vh;
+    background-color: var(--lt-light);
+    .product-data {
+        height: 50vh;
+        overflow: hidden scroll;
+    }
+    .product-row-data {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #80808020;
+        .number {
+            &:focus {
+                outline: none;
+                box-shadow: none;
+                border-color: #ced4da;
+            }
+        }
+    }
+    .product-row-data,
+    .product-row {
+        align-items: center;
+    }
+    .product-footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        .product-footer-data {
+            background-color: #80808010;
+            border-radius: .5rem;
+        }
+    }
+}
+
+.payment-section {
+    .save-card {
+        border: none;
+        border-radius: .5rem;
+        font-size: 80%;
+        opacity: .9;
+        &:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+    .history-card {
+        .row {
+            align-items: center;
+        }
+        border-radius: .5rem;
+        opacity: .9;
+        .history-content {
+            width: 100%;
+            max-height: 150px;
+            overflow: hidden scroll;
+        }
+    }
+}
+
+.clear-all {
+    @include center;
+    span {
+        border-radius: .5rem;
+        &:hover {
+            opacity: .8;
+            cursor: pointer;
+        }
+    }
+}
+
+.clear {
+    @include center;
+    span {
+        background-color: #80808010;
+        border-radius: .5rem;
+        &:hover {
+            background-color: #80808020;
+            cursor: pointer;
+        }
+    }
+}

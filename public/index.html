@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link href="/fonts/remixicon.css" rel="stylesheet">
+    <!--Pull up font from CDN in production-->
+    <style>
+      @font-face {
+            font-family: "Product Sans";
+            src: url("/fonts/Google/ProductSans-Light.ttf") format('truetype');
+            font-weight: normal;
+      }
+      @font-face {
+            font-family: "Gilroy Light";
+            src: url("/fonts/Gilroy/Gilroy-Light-300.otf") format('opentype');
+            font-weight: 300;
+        }
+
+        @font-face {
+            font-family: "Gilroy ExtraBold";
+            src: url("/fonts/Gilroy/Gilroy-ExtraBold-800.otf") format('opentype');
+            font-weight: 800;
+        }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
