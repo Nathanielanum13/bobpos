@@ -8,10 +8,10 @@ export default {
         }
     },
     mutations: {
-        updateProducts: (state, products) => {
+        UPDATE_PRODUCTS: (state, products) => {
             state.products = products
         },
-        updateProductStock: (state, targetProduct) => {
+        UPDATE_PRODUCT_STOCK: (state, targetProduct) => {
             state.products = state.products.map((product) => {
                 return product.id === targetProduct.id ? {
                     ...product,
@@ -19,7 +19,7 @@ export default {
                 } : product
             })
         },
-        addToProductStock: (state, targetProductID, stockToAdd) => {
+        ADD_TO_PRODUCT_STOCK: (state, targetProductID, stockToAdd) => {
             state.products = state.products.map((product) => product.id === targetProductID ? {
                 ...product,
                 stock: +product.stock + stockToAdd
@@ -31,16 +31,16 @@ export default {
             try {
                 await axios.get(`${process.env.VUE_APP_API}/products`, {
                     headers: { 'Content-type': 'application/json' }
-                }).then(resp => commit('updateProducts', resp.data))
+                }).then(resp => commit('UPDATE_PRODUCTS', resp.data))
             } catch (error) {
                 throw (`Error at getProduct() \n ${error}`)
             }
         },
         reduceProductStock: ({ commit }, product) => {
-            commit('updateProductStock', product)
+            commit('UPDATE_PRODUCT_STOCK', product)
         },
         addProductStock: ({ commit }, productId, stockToAdd) => {
-            commit('addToProductStock', productId, stockToAdd)
+            commit('ADD_TO_PRODUCT_STOCK', productId, stockToAdd)
         },
         saveProductStockTransaction: async({ commit }, productToUpdate) => {
             try {
@@ -49,7 +49,7 @@ export default {
                     JSON.stringify({...productToUpdate, counter: null }), {
                         headers: {...authHeader()}
                     }
-                ).then(resp => commit('updateProductStock', resp.data))
+                ).then(resp => commit('UPDATE_PRODUCT_STOCK', resp.data))
             } catch (error) {
                 throw (`Error at saveProductStockTransaction() \n ${error}`)
             }

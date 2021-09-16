@@ -12,6 +12,15 @@
     .product-data {
         height: 50vh;
         overflow: hidden scroll;
+        &::-webkit-scrollbar {
+            width: var(--space-xxs);
+            background-color: var(--lt-muted-light);
+            border-radius: 3px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: #80808090;
+            border-radius: 3px;
+        }
     }
     .product-row-data {
         padding-bottom: 10px;

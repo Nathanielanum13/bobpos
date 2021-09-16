@@ -1,5 +1,5 @@
 <template>
-  <div class="card product-card w-100 h-100" @click="updateCart()">
+  <div class="card product-card w-100 h-100">
     <div class="card-img product-image text-center">
       <img
         :alt="product.name"
@@ -62,10 +62,12 @@ export default {
     },
   },
   setup() {
-    const updateCart = () => {};
-    const addToLocalCart = (product) => {};
-
     const store = useStore();
+
+    const addToLocalCart = (product) => {
+      store.dispatch('addToCart', product)
+    };
+
     const showEditProduct = computed(
       () => store.state.auth.isAuthorizedToWrite
     );
@@ -74,8 +76,8 @@ export default {
     const editProduct = (id) => {
       router.push(`/home/products/${id}`)
     }
+
     return {
-      updateCart,
       addToLocalCart,
       editProduct,
       showEditProduct

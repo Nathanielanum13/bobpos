@@ -126,12 +126,12 @@
           </span>
         </div>
         <div
-          v-if="$route.path === '/products'"
+          v-if="$route.path === '/home/products'"
           class="col-sm-4 col-md-2 p-0 m-auto"
         >
           <span class="fa fa-shopping-cart text-danger mr-2"></span>
           <span class="badge badge-warning font-weight-bold">{{
-            cart.length
+           cartSize
           }}</span>
         </div>
         <div class="d-none d-md-block col-md-3 p-0">
@@ -168,6 +168,7 @@ export default {
     const store = useStore();
 
     const currentUser = computed(() => store.state.auth.user);
+    const cartSize = computed(() => store.state.cart.cart.length)
 
     // Check and permissions to enable 
     // and disable certain features
@@ -181,6 +182,7 @@ export default {
     return {
       currentUser,
       doLogout,
+      cartSize
     };
   },
 };

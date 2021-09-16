@@ -109,36 +109,47 @@
 
 <script>
 import useCart from "@/services/useCart";
-import {ref, watchEffect} from "vue"
+import {useStore} from "vuex"
+import {ref, watchEffect, computed} from "vue"
 
 export default {
   name: "Dashboard",
   setup() {
-    const {cart, resetCart, removeProduct, printCartReceipt} = useCart()
+    const store = useStore()
+
+    const cart = computed(() => store.state.cart.cart)
+    const clearCart = () => store.dispatch('resetCart')
+    const removeItem = (itemId) => store.dispatch('removeCartable', itemId)
+    const printCartReceipt = () => store.dispatch('issueCartReceipt')
+
     const total = ref(0.00)
     const tax = ref(0.00)
-    const cartIndex = ref(null)
 
-    const calculateTotal = () => {
-      total.value = 0.00
-      for (let i = 0; i < cart.value.length; i++)
-        total.value = total.value + (cart.value[i].price * (cart.value[i].counter ?? 1))
-    }
+    // const {cart, resetCart, removeProduct, printCartReceipt} = useCart()
+    // const total = ref(0.00)
+    // const tax = ref(0.00)
+    // const cartIndex = ref(null)
 
-    const calculateTax = () => {
-      tax.value = 0.035 * total.value
-    }
-    calculateTotal()
-    calculateTotal()
+    // const calculateTotal = () => {
+    //   total.value = 0.00
+    //   for (let i = 0; i < cart.value.length; i++)
+    //     total.value = total.value + (cart.value[i].price * (cart.value[i].counter ?? 1))
+    // }
 
-    watchEffect(() => {
-      calculateTotal()
-      calculateTax()
-    })
+    // const calculateTax = () => {
+    //   tax.value = 0.035 * total.value
+    // }
+    // calculateTotal()
+    // calculateTotal()
+
+    // watchEffect(() => {
+    //   calculateTotal()
+    //   calculateTax()
+    // })
 
 
-    const clearCart = () => resetCart()
-    const removeItem = (itemId) => removeProduct(itemId)
+    // const clearCart = () => resetCart()
+    // const removeItem = (itemId) => removeProduct(itemId)
 
     return {
       cart,
