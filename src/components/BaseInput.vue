@@ -82,7 +82,7 @@ export default {
 
 label {
   display: block;
-  font-weight: bold;
+  // font-weight: bold;
   font-size: 1em;
   text-align: left;
 }

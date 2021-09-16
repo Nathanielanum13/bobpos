@@ -1,5 +1,5 @@
 <template>
-  <BaseDialog class="card" width="350">
+  <BaseDialog class="card" width="325">
     <div class="card-body">
       <div class="logo-container text-center p-2">
         <img

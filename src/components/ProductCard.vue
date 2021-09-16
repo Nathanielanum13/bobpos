@@ -1,12 +1,23 @@
 <template>
   <div class="card product-card w-100 h-100">
     <div class="card-img product-image text-center">
-      <img
+      <object
+        :data="product.url"
+        class="img-fluid image"
+      >
+        <img
+          :alt="product.name"
+          class="img-fluid image"
+          height="200"
+          src="@/assets/img/products/no-photo.png"
+        />
+      </object>
+      <!-- <img
         :alt="product.name"
         class="img-fluid image"
         height="200"
-        src="../assets/img/products/2.png"
-      />
+        src="https://cdn.pixabay.com/photo/2015/11/07/11/22/pillows-1031079_960_720.jpg"
+      /> -->
       <!-- <img :alt="product.name" class="img-fluid image" height="200" :src="`data:image/jpeg;base64,` + product.image">-->
     </div>
     <div class="card-body text-center">
@@ -44,7 +55,13 @@
         </div>
       </div>
     </div>
-    <div class="edit-product" v-if="showEditProduct" @click="editProduct(product.id)"><span class="fa fa-pencil"></span></div>
+    <div
+      class="edit-product"
+      v-if="showEditProduct"
+      @click="editProduct(product.id)"
+    >
+      <span class="fa fa-pencil"></span>
+    </div>
   </div>
 </template>
 
@@ -65,22 +82,22 @@ export default {
     const store = useStore();
 
     const addToLocalCart = (product) => {
-      store.dispatch('addToCart', product)
+      store.dispatch("addToCart", product);
     };
 
     const showEditProduct = computed(
       () => store.state.auth.isAuthorizedToWrite
     );
 
-    const router = useRouter()
+    const router = useRouter();
     const editProduct = (id) => {
-      router.push(`/home/products/${id}`)
-    }
+      router.push(`/home/products/${id}`);
+    };
 
     return {
       addToLocalCart,
       editProduct,
-      showEditProduct
+      showEditProduct,
     };
   },
 };
