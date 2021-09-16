@@ -108,7 +108,6 @@
 </template>
 
 <script>
-import useCart from "@/services/useCart";
 import {useStore} from "vuex"
 import {ref, watchEffect, computed} from "vue"
 
