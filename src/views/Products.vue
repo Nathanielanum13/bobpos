@@ -56,7 +56,7 @@ export default {
   },
   setup() {
     const store = useStore();
-    const groups = computed(() => store.getters.productCategories);
+    const groups = computed(() => store.getters["products/productCategories"]);
 
     return {
       groups,

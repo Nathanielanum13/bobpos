@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 /dist
+/public/fonts
+/public/css
 
 
 # local env files

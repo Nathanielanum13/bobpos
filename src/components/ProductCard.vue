@@ -31,13 +31,13 @@
         {{ product.weight }} |
         <span
           :class="
-            product.stock > 50
+            product.temp_stock > 50
               ? 'text-success'
-              : 50 > product.stock && product.stock > 25
+              : 50 > product.temp_stock && product.temp_stock > 25
               ? 'text-warning'
               : 'text-danger'
           "
-          >{{ product.stock }}
+          >{{ product.temp_stock }}
         </span>
         in stock
       </span>
@@ -50,7 +50,7 @@
         <div class="col-6 px-0 text-center">
           <span
             class="text-danger ri-add-circle-fill fa-2x product-add"
-            @click.stop="addToLocalCart(product)"
+            @click.stop="addToCart(product)"
           ></span>
         </div>
       </div>
@@ -81,8 +81,8 @@ export default {
   setup() {
     const store = useStore();
 
-    const addToLocalCart = (product) => {
-      store.dispatch("addToCart", product);
+    const addToCart = (product) => {
+      store.dispatch("cart/addToCart", product);
     };
 
     const showEditProduct = computed(
@@ -95,7 +95,7 @@ export default {
     };
 
     return {
-      addToLocalCart,
+      addToCart,
       editProduct,
       showEditProduct,
     };

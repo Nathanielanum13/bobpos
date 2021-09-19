@@ -7,7 +7,7 @@ export default {
   name: "App",
   setup() {
     const store = useStore();
-    store.dispatch("loadUser");
+    store.dispatch("auth/loadUser");
     return {}
   },
 };

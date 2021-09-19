@@ -12,7 +12,7 @@ export default {
     const store = useStore()
 
     const productId = computed(() => route.params.id);
-    const product = store.getters.getProductById(productId.value)
+    const product = store.getters['products/getProductById'](productId.value)
 
     return {
       product,

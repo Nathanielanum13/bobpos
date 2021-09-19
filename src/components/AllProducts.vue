@@ -24,8 +24,8 @@ export default {
     const store = useStore()
     const products = computed(() => store.state.products.products)
 
-    // Fetch all products 
-    await store.dispatch('getProducts')
+    // Fetch all products if products is empty 
+    if (products.value.length === 0) await store.dispatch('products/getProducts')
 
     return {
       products,

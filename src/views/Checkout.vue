@@ -31,7 +31,7 @@
             <div class="col-2 px-1 text-truncate">
               <span class="figure-caption font-weight-bold">
                 <input v-model="item.counter" class="form-control number font-weight-bold" min="1" placeholder="1"
-                       type="number">
+                       type="number" :max="item.stock">
               </span>
             </div>
             <div class="col-2 px-1 text-truncate">
@@ -92,7 +92,7 @@
         <div class="card bg-success save-card mt-4">
           <div class="card-body text-center p-3">
             <span class="ri-archive-drawer-fill mr-2 text-white"></span>
-            <span class="font-weight-bold text-white">Cash Drawer</span>
+            <span class="font-weight-bold text-white">Sales Drawer {{ sales.length }}</span>
           </div>
         </div>
         <!--Undo Transaction card-->
@@ -117,46 +117,32 @@ export default {
     const store = useStore()
 
     const cart = computed(() => store.state.cart.cart)
-    const clearCart = () => store.dispatch('resetCart')
-    const removeItem = (itemId) => store.dispatch('removeCartable', itemId)
-    const printCartReceipt = () => store.dispatch('issueCartReceipt')
+    const clearCart = () => store.dispatch('cart/resetCart')
+    const removeItem = (itemId) => store.dispatch('cart/removeCartable', itemId)
+    const printCartReceipt = () => store.dispatch('cart/issueCartReceipt')
 
-    const total = ref(0.00)
-    const tax = ref(0.00)
+    const total = computed(() => {
+      let totalPrice = 0.00
+      cart.value.forEach(cartable => {
+        let counter = cartable.counter ?? 1
+        totalPrice = totalPrice + (cartable.price * counter)
+      })
+      return totalPrice
+    })
 
-    // const {cart, resetCart, removeProduct, printCartReceipt} = useCart()
-    // const total = ref(0.00)
-    // const tax = ref(0.00)
-    // const cartIndex = ref(null)
+    const tax = computed(() => 0.035 * total.value)
 
-    // const calculateTotal = () => {
-    //   total.value = 0.00
-    //   for (let i = 0; i < cart.value.length; i++)
-    //     total.value = total.value + (cart.value[i].price * (cart.value[i].counter ?? 1))
-    // }
+    const sales = computed(() => store.state.sales.sales)
 
-    // const calculateTax = () => {
-    //   tax.value = 0.035 * total.value
-    // }
-    // calculateTotal()
-    // calculateTotal()
-
-    // watchEffect(() => {
-    //   calculateTotal()
-    //   calculateTax()
-    // })
-
-
-    // const clearCart = () => resetCart()
-    // const removeItem = (itemId) => removeProduct(itemId)
 
     return {
-      cart,
       clearCart,
       removeItem,
       printCartReceipt,
+      cart,
       total,
-      tax
+      tax,
+      sales
     }
   }
 }
