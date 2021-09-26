@@ -1,0 +1,79 @@
+.receipt, .product-receipt {
+  width: 302.36px;
+  /* width: 500px; */
+  height: 100%;
+  padding: 10px;
+  background-color: white;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  font-family: consolas;
+  font-stretch: condensed;
+  font-size: 125%;
+
+  border: 1px dashed #000;
+}
+.header, .footer {
+  padding: 10px;
+  text-align: center;
+}
+.logo {
+  width: 50px;
+  height: auto;
+  margin-inline: auto;
+  margin-block-end: 5px;
+}
+.logo > img {
+  max-width: 100%;
+  height: auto;
+}
+.header {
+  border-bottom: 1px dashed #000;
+}
+.header > div,
+.footer > div {
+  margin-bottom: 5px;
+}
+.content {
+  width: 100%;
+  padding: 5px 10px;
+  /* border-bottom: 1px dashed #000; */
+}
+.table {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+.receipt .table tbody tr:nth-last-child(3) td {
+  border-bottom: 1px dashed #000;
+  padding: 2.5px 0 10px 0;
+}
+.table tbody tr td{
+  padding: 2.5px 0;
+  width: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.table thead td {
+  font-weight: bold;
+}
+.table tbody tr td {
+  max-width: 10ch;
+}
+.receipt .table tbody tr:last-child td:last-child {
+  font-weight: bold;
+  text-align: right;
+}
+
+.see {
+  border: 1px solid red;
+}
+
+@media print and (width: 302.36px) and (height: 1000px) {
+  @page {
+    margin: 0
+  }
+}

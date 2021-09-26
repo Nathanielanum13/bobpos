@@ -3,6 +3,7 @@ node_modules
 /dist
 /public/fonts
 /public/css
+/public/js
 
 
 # local env files

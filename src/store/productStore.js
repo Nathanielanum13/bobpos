@@ -10,7 +10,7 @@ export default {
     },
     mutations: {
         UPDATE_PRODUCTS: (state, products) => {
-            state.products = products.map((product => ({...product, temp_stock: product.stock})))
+            state.products = products.map(product => ({...product, temp_stock: product.stock}))
         },
         UPDATE_PRODUCT_STOCK: (state, { id, stock }) => {
             state.products = state.products.map(product => {

@@ -12,7 +12,7 @@ export default function useAuthentication() {
         try {
             response = await axios.get(`${process.env.VUE_APP_API}/users/${formData.username}`).then(res => {
                 if (res.status === httpResponse.SUCCESS && res.data.userData.password === formData.password) {
-                    store.dispatch('logUserIn', res.data)
+                    store.dispatch('auth/logUserIn', res.data)
                 } else {
                     throw ("Credentials mismatch")
                 }

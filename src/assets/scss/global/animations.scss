@@ -1,3 +1,17 @@
 @keyframes fade-lt {
     to {opacity: .5;}
 }
+@keyframes slide-up {
+    from {
+        bottom: -60vh;
+    }
+    to {
+        bottom: 0;
+    }
+}
+.slide-enter-active {
+    animation: slide-up .75s ease forwards 1;
+}
+.slide-leave-active {
+    animation: slide-up .25s ease forwards 1 reverse;
+}

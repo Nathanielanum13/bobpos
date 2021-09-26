@@ -1,3 +1,5 @@
+import {customerReceipt} from "../services/utils/receiptGenerator";
+
 export default {
     namespaced: true,
     state() {
@@ -38,8 +40,13 @@ export default {
             }
         },
         resetCart: ({state, commit, dispatch}) => {
-            state.cart.forEach(cartable => dispatch('products/addTempProductStock', {
-                id: cartable.id, stock: cartable.counter ?? 1 }, { root: true }))
+            state.cart.forEach(cartable => {
+                let counter = cartable.counter ?? 1
+                let stockToAdd = counter - (counter - (cartable.stock - cartable.temp_stock))
+                dispatch('products/addTempProductStock', {
+                    id: cartable.id, stock: stockToAdd
+                }, {root: true})
+            })
             state.cart = []
             commit('SAVE_CART')
         },
@@ -47,36 +54,29 @@ export default {
             state.cart = state.cart.filter(cartable => {
                 if (cartable.id === productToRemoveId) {
                     let counter = cartable.counter ?? 1
+                    let stockToAdd = counter - (counter - (cartable.stock - cartable.temp_stock))
                     dispatch('products/addTempProductStock', {
-                        id: cartable.id, stock: counter}, { root: true })
+                        id: cartable.id, stock: stockToAdd }, { root: true })
                     return
                 }
                 return cartable
             })
             commit('SAVE_CART')
         },
-        issueCartReceipt: ({state, dispatch}) => {
-            // Generate and print receipt
-            let totalPrice = 0.00
-            let taxRate = 0.035
+        addCartSale: ({ state, dispatch, commit }, sales) => {
+            // Edge case for empty cart
+            if (state.cart.length === 0) return
+            // Pass receipt and other details to sale drawer and save sales
+            dispatch('sales/addSales', sales, { root: true })
 
             state.cart.forEach(cartable => {
-                let counter = cartable.counter ?? 1
-                totalPrice = totalPrice + (cartable.price * counter)
+                dispatch('products/updateTempProductStock', {
+                    id: cartable.id, stock: cartable.stock - (cartable.counter ?? 1)
+                }, {root: true})
             })
 
-
-            let sale = {
-                receiptNumber: Math.floor(Math.random() * 1_000_000),
-                totalPrice: totalPrice + (taxRate * totalPrice),
-                cart: state.cart
-            }
-            // Pass receipt and other details to sale drawer and save sales
-            dispatch('sales/addSales', sale, { root: true })
-            state.cart.forEach(cartable => dispatch('products/updateTempProductStock', {
-                id: cartable.id, stock: cartable.temp_stock
-            }, { root: true }))
-            dispatch('resetCart')
+            state.cart = []
+            commit('SAVE_CART')
         }
     },
     getters: {

@@ -59,9 +59,23 @@
       <div class="col-3 p-2 payment-section">
         <!--Print receipt card-->
         <div class="card bg-warning save-card" @click="printCartReceipt">
-          <div class="card-body text-center p-3">
+          <div class="card-body text-center px-3 py-4">
             <span class="ri-bill-fill mr-2"></span>
             <span class="font-weight-bold">Print Receipt</span>
+          </div>
+        </div>
+        <!--Cash drawer card-->
+        <div class="card bg-success save-card mt-2 position-relative" @click="toggleSalesDrawer">
+          <div class="card-body text-center px-3 py-4">
+            <span class="ri-archive-drawer-fill mr-2 text-white"></span>
+            <span class="font-weight-bold text-white">Sales Drawer <span class="sales-counter ml-2 position-absolute">{{ sales.length }}</span></span>
+          </div>
+        </div>
+        <!--Undo Transaction card-->
+        <div class="card bg-danger save-card mt-2">
+          <div class="card-body text-center px-3 py-4">
+            <span class="ri-archive-drawer-fill mr-2 text-white"></span>
+            <span class="font-weight-bold text-white">Undo Sale</span>
           </div>
         </div>
         <!--History on sales-->
@@ -88,38 +102,68 @@
             </ul>
           </div>
         </div>
-        <!--Cash drawer card-->
-        <div class="card bg-success save-card mt-4">
-          <div class="card-body text-center p-3">
-            <span class="ri-archive-drawer-fill mr-2 text-white"></span>
-            <span class="font-weight-bold text-white">Sales Drawer {{ sales.length }}</span>
+      </div>
+    </div>
+  </div>
+  <transition name="slide">
+    <div class="sales-drawer-container" ref="salesContainer" v-show="showSalesDrawer && sales.length !== 0">
+      <div class="handle" ref="salesHandler"></div>
+      <div class="row mx-0 w-100 mt-3 h-100 align-items-center">
+        <div class="col-sm-12 col-md-9 sales">
+          <div class="sale row w-100 mx-0 align-items-center p-2 my-1" v-for="sale in sales" :key="sale.receiptNumber">
+            <div class="col-md-2 text-center p-1 bg-light border sale-receipt-number">
+              <span class="font-weight-bold">RNo.{{ sale.receiptNumber }}</span>
+            </div>
+            <div class="col-md-6 text-truncate px-3 py-1">
+              <span class="text-dark" v-for="cartItem in sale.cart" :key="cartItem.id">{{ cartItem.name + ' | ' }}</span>
+            </div>
+            <div class="col-md-2 text-center">
+              <span class="font-weight-bold text-dark">{{ sale.totalPrice }}</span>
+            </div>
+            <div class="col-md-2 text-center">
+              <button class="btn btn-success btn-sm btn-block">Approve</button>
+            </div>
           </div>
         </div>
-        <!--Undo Transaction card-->
-        <div class="card bg-danger save-card mt-2">
-          <div class="card-body text-center p-3">
-            <span class="ri-archive-drawer-fill mr-2 text-white"></span>
-            <span class="font-weight-bold text-white">Undo Sale</span>
+        <div class="col-sm-6 col-md-3 p-4">
+          <div class="action-calls card bg-danger text-light text-center p-2 border-0">
+            <!--<span class="card-img fa fa-close fa-2x pt-2"></span>-->
+            <span class="font-weight-bold my-2">Cancel All Sales</span>
+          </div>
+          <div class="action-calls card bg-success text-light text-center p-2 border-0 mt-2">
+            <!--<span class="card-img fa fa-check fa-2x pt-2"></span>-->
+            <span class="font-weight-bold my-2">Approve All Sales</span>
           </div>
         </div>
       </div>
     </div>
+  </transition>
+  <div class="receipt-container">
+    <CustomerReceipt :sales="printableSales" :tax.number="tax" :company-details="companyDetails" />
+    <ProductReceipt :sales="printableSales" :company-details="companyDetails" />
   </div>
 </template>
 
 <script>
 import {useStore} from "vuex"
-import {ref, watchEffect, computed} from "vue"
-
+import {ref, computed} from "vue"
+import Drag from "../services/utils/drag";
+import CustomerReceipt from "../components/CustomerReceipt";
+import ProductReceipt from "../components/ProductReceipt";
 export default {
   name: "Dashboard",
+  components: {
+    CustomerReceipt,
+    ProductReceipt
+  },
   setup() {
     const store = useStore()
 
     const cart = computed(() => store.state.cart.cart)
+
     const clearCart = () => store.dispatch('cart/resetCart')
     const removeItem = (itemId) => store.dispatch('cart/removeCartable', itemId)
-    const printCartReceipt = () => store.dispatch('cart/issueCartReceipt')
+
 
     const total = computed(() => {
       let totalPrice = 0.00
@@ -134,15 +178,66 @@ export default {
 
     const sales = computed(() => store.state.sales.sales)
 
+    // Printing Receipt Functionalities
+    const companyDetails = {
+      name: 'TINA COLD Ventures',
+      email: 'nathanielanum13@gmail.com',
+      phone: '+(233)509131631'
+    }
+    const printableSales = ref({})
+    const printCartReceipt = () => {
+      // Edge case for empty cart
+      if (cart.value.length === 0) return
+      // Generate and save sale
+      let sales = {
+        receiptNumber: Math.floor(Math.random() * 1_000_000),
+        totalPrice: (total.value + tax.value).toFixed(2),
+        cart: cart.value
+      }
+      store.dispatch('cart/addCartSale', sales)
+
+      // Print sales receipt
+      printableSales.value = sales
+
+      setTimeout(() => {
+        printJS({
+          printable: 'receipt',
+          type: 'html',
+          targetStyles: ['*']
+        })
+      }, 0)
+    }
+
+    // Sales drawer functionalities
+    const salesContainer = ref(null)
+    const salesHandler = ref(null)
+    const showSalesDrawer = ref(false)
+
+    const toggleSalesDrawer = () => {
+      const draggableContainer = new Drag(salesContainer?.value, salesHandler?.value, { max: 600, min: 400 })
+      showSalesDrawer.value = !showSalesDrawer.value
+      if (showSalesDrawer.value) {
+        // salesContainer?.value.setAttribute("style", "height: 60vh")
+        draggableContainer.listen()
+      } else {
+        draggableContainer.end()
+      }
+    }
 
     return {
       clearCart,
       removeItem,
       printCartReceipt,
+      toggleSalesDrawer,
       cart,
       total,
       tax,
-      sales
+      sales,
+      showSalesDrawer,
+      salesContainer,
+      salesHandler,
+      companyDetails,
+      printableSales
     }
   }
 }
@@ -150,4 +245,9 @@ export default {
 
 <style scoped lang="scss">
 @import "@/assets/scss/views/checkout-view";
+.receipt-container {
+  position: absolute;
+  bottom: -200vh;
+  font-size: 10px;
+}
 </style>
