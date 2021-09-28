@@ -1,0 +1,462 @@
+{
+  "users": [
+    {
+      "id": "admin@entry",
+      "userData": {
+        "username": "Abigail Cook",
+        "password": "admin123@entry",
+        "gender": "female",
+        "profile": "user-admin-2.jpg",
+        "type": "entry"
+      },
+      "roles": [
+        "read",
+        "write"
+      ],
+      "token": "ey190jublbgg109.12ewyuo09irrlem.09po04reyfitsy098"
+    },
+    {
+      "id": "henry@sales.com",
+      "userData": {
+        "username": "Henry Addo",
+        "password": "henry1234",
+        "gender": "male",
+        "profile": "user-admin-1.jpg",
+        "type": "sales"
+      },
+      "roles": [
+        "read"
+      ],
+      "token": "ey190jublbgg109.12ewyuo09irrlem.09po04reyfitsy098"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Wooden Cushion Pillow",
+      "category": "Pillows",
+      "weight": "2.3g",
+      "price": 10.89,
+      "url": "https://www.llbean.com/llb/shop/116740?page=men-s-merrell-moab-2-ventilated-trail-shoes&bc=512576&feat=512576-gn1&csp=a&attrvalue_0=walnut",
+      "stock": 170,
+      "counter": null,
+      "temp_stock": 175
+    },
+    {
+      "id": 2,
+      "name": "Mush Pillow",
+      "category": "Pillows",
+      "weight": "53g",
+      "price": 18,
+      "url": "https://www.llbean.com/llb/shop/116740?page=men-s-merrell-moab-2-ventilated-trail-shoes&bc=512576&feat=512576-gn1&csp=a&attrvalue_0=walnut",
+      "stock": 70,
+      "counter": null
+    },
+    {
+      "id": 304809,
+      "name": "Men's Merrell Moab 2 Ventilated Trail Shoes",
+      "url": "https://www.llbean.com/llb/shop/116740?page=men-s-merrell-moab-2-ventilated-trail-shoes&bc=512576&feat=512576-gn1&csp=a&attrvalue_0=walnut",
+      "stock": 60,
+      "category": "Shoes",
+      "weight": "2.3kg",
+      "price": 122,
+      "counter": null
+    },
+    {
+      "id": 19,
+      "name": "Streamlight Ultra II Switch Fly Rods",
+      "url": "https://www.llbean.com/llb/shop/121908?page=streamlight-ultra-ii-switch-fly-rod&bc=511742-511747&feat=511747-gn1&csp=a&attrvalue_0=green",
+      "stock": 10,
+      "category": "Fishing Tools",
+      "weight": "11g",
+      "price": 7
+    },
+    {
+      "id": 507102,
+      "name": "Wool Hooked Throw Pillow, Wooden Paddles",
+      "url": "https://www.llbean.com/llb/shop/122223?page=wool-hooked-throw-pillow-wooden-paddles&bc=516761-516271&feat=516271-gn3&csp=a",
+      "stock": 30,
+      "category": "Pillows",
+      "weight": "2.8g",
+      "price": 111
+    },
+    {
+      "id": 18,
+      "name": "Men's Heavy-Duty Suspenders",
+      "url": "https://www.llbean.com/llb/shop/11072?page=men-s-heavy-duty-suspenders&bc=29-507929-507932-506557-514347&feat=514347-gn3&csp=f&attrvalue_0=green",
+      "stock": 70,
+      "category": "Suspenders",
+      "weight": "2.3kg",
+      "price": 12.89
+    },
+    {
+      "id": 17,
+      "name": "Organic Textured Cotton Towel",
+      "url": "https://www.llbean.com/llb/shop/120494?page=organic-textured-cotton-towel&bc=31-900-514487&feat=514487-gn3&csp=f",
+      "stock": 10,
+      "category": "Towels",
+      "weight": "5kg",
+      "price": 16
+    },
+    {
+      "id": 307415,
+      "name": "Pearl Izumi Select Escape Cycling Jersey, Short-Sleeve",
+      "url": "https://www.llbean.com/llb/shop/120606?page=pearl-izumi-select-escape-cycling-jersey-short-sleeve&bc=12-27-509757-502975&feat=502975-gn3&csp=f",
+      "stock": 10,
+      "category": "Shirts",
+      "weight": "4kg",
+      "price": 50.09
+    },
+    {
+      "id": 16,
+      "name": "Men's Silk Underwear, Crewneck",
+      "url": "https://www.llbean.com/llb/shop/74749?page=men-s-silk-underwear-crewneck&bc=514949&feat=514949-gn1&csp=a",
+      "stock": 10,
+      "category": "Underwear",
+      "weight": "23g",
+      "price": 89.11
+    },
+    {
+      "id": 281391,
+      "name": "All-Weather Dining Table, Round 48",
+      "url": "https://www.llbean.com/llb/shop/77597?page=all-weather-dining-table-round-48&bc=504182-508631&feat=508631-gn3&csp=a",
+      "stock": 10,
+      "category": "Tables",
+      "weight": "23kg",
+      "price": 1230.89
+    },
+    {
+      "id": 309741,
+      "name": "Women's SmartWool Hide and Seek No-Show Socks",
+      "url": "https://www.llbean.com/llb/shop/122533?page=women-s-smartwool-hide-and-seek-no-show-socks&bc=511742&feat=511742-gn0&csp=a",
+      "stock": 10,
+      "category": "Socks",
+      "weight": "2g",
+      "price": 19
+    },
+    {
+      "id": 287286,
+      "name": "Women's Streamlight Ultra Four-Piece Fly Rod 8 Wt.",
+      "url": "https://www.llbean.com/llb/shop/81321?page=streamlight-ultra-four-piece-fly-rod-8-wt&bc=32-509104-502035&feat=502035-gn3&csp=s&attrvalue_0=light%20teal",
+      "stock": 10,
+      "category": "Fishing Tools",
+      "weight": "13g",
+      "price": 115
+    },
+    {
+      "id": 15,
+      "name": "Men's Mountain Classic Down Vest, Colorblock",
+      "url": "https://www.llbean.com/llb/shop/121493?page=men-s-mountain-classic-down-vest-colorblock&bc=513087&feat=513087-gn1&csp=a",
+      "stock": 10,
+      "category": "Vests",
+      "weight": "73g",
+      "price": 29
+    },
+    {
+      "id": 299504,
+      "name": "Tropicwear Cap",
+      "url": "https://www.llbean.com/llb/shop/90966?page=tropicwear-cap&bc=29-507923-507930&feat=507930-gn1&csp=f",
+      "stock": 10,
+      "category": "Headwear",
+      "weight": "1kg",
+      "price": 10
+    },
+    {
+      "id": 14,
+      "name": "Women's Weather Challenger 3-in-1 Jacket",
+      "url": "https://www.llbean.com/llb/shop/83436?page=women-s-weather-challenger-3-in-1-jacket&bc=514957&feat=514957-gn1&csp=a",
+      "stock": 10,
+      "category": "Jackets",
+      "weight": "2.3g",
+      "price": 12.89
+    },
+    {
+      "id": 13,
+      "name": "Lakewashed® Organic Cotton Oxford Shirt, Plaid",
+      "url": "https://www.llbean.com/llb/shop/120955?page=lakewashed-organic-cotton-oxford-shirt-plaid&bc=32-516686-302-6705&feat=6705-gn3&csp=s",
+      "stock": 10,
+      "category": "Shirts",
+      "weight": "44g",
+      "price": 53.04
+    },
+    {
+      "id": 302283,
+      "name": "Kids' Wicked Good Mocs",
+      "url": "https://www.llbean.com/llb/shop/111677?page=kids-wicked-good-mocs&bc=474-651-503721&feat=503721-gn3&csp=f",
+      "stock": 10,
+      "category": "Slippers",
+      "weight": "114g",
+      "price": 11.89
+    },
+    {
+      "id": 12,
+      "name": "Kids' L.L.Bean's Sweater Fleece, Hooded, Colorblock",
+      "url": "https://www.llbean.com/llb/shop/120699?page=kids-l-l-bean-sweater-fleece-hooded-colorblock&bc=12-627-503348-503537&feat=503537-gn3&csp=f",
+      "stock": 10,
+      "category": "Jackets",
+      "weight": "25g",
+      "price": 12.39
+    },
+    {
+      "id": 307202,
+      "name": "Women's Merrell Chameleon 7, Low Ventilated",
+      "url": "https://www.llbean.com/llb/shop/120102?page=women-s-merrell-chameleon-7-low-ventilated&bc=474-630-506708&feat=506708-gn2&csp=f&attrvalue_0=slate",
+      "stock": 10,
+      "category": "Shoes",
+      "weight": "1kg",
+      "price": 14.89
+    },
+    {
+      "id": 506382,
+      "name": "Women's L.L.Bean Comfort Cycling Jersey, Short-Sleeve",
+      "url": "https://www.llbean.com/llb/shop/122104?page=women-s-l-l-bean-comfort-cycling-jersey-short-sleeve&bc=12-27-509757-502975&feat=502975-gn3&csp=f",
+      "stock": 10,
+      "category": "Shirts",
+      "weight": "19g",
+      "price": 52.89
+    },
+    {
+      "id": 292106,
+      "name": "Men's ExOfficio Give-N-Go Boxer, 5½ Inseam",
+      "url": "https://www.llbean.com/llb/shop/85549?page=men-s-exofficio-give-n-go-boxer-5-inseam&bc=12-26-506979-516179&feat=516179-gn3&csp=f",
+      "stock": 10,
+      "category": "Underwear",
+      "weight": "15kg",
+      "price": 12.69
+    },
+    {
+      "id": 307778,
+      "name": "Kids' L.L.Bean Ridge Runner Mountain Bike, 24",
+      "url": "https://www.llbean.com/llb/shop/120828?page=kids-l-l-bean-ridge-runner-mountain-bike-24&bc=29-119-5480-506738&feat=506738-gn3&csp=f&attrvalue_0=blue",
+      "stock": 10,
+      "category": "Bicycles",
+      "weight": "2.13g",
+      "price": 17.89
+    },
+    {
+      "id": 303821,
+      "name": "Portland Leather Sofa",
+      "url": "https://www.llbean.com/llb/shop/116754?page=portland-leather-sofa&bc=504182-506629&feat=506629-gn3&csp=a",
+      "stock": 10,
+      "category": "Couches",
+      "weight": "2.3kg",
+      "price": 18.89
+    },
+    {
+      "id": 11,
+      "name": "Girls' Peak Waterproof Insulated 3-in-1 Jacket",
+      "url": "https://www.llbean.com/llb/shop/111818?page=girls-peak-waterproof-insulated-3-in-1-jacket&bc=12-627-503348&feat=503348-gn2&csp=f",
+      "stock": 10,
+      "category": "Jackets",
+      "weight": "2.3g",
+      "price": 19.89
+    },
+    {
+      "id": 309754,
+      "name": "Women's Darn Tough Stripe No-Show Socks",
+      "url": "https://www.llbean.com/llb/shop/122420?page=women-s-darn-tough-stripe-no-show-socks&bc=511742&feat=511742-gn0&csp=a",
+      "stock": 10,
+      "category": "Socks",
+      "weight": "12kg",
+      "price": 12.29
+    },
+    {
+      "id": 501102,
+      "name": "Kids' Trucker Hat",
+      "url": "https://www.llbean.com/llb/shop/115908?page=kids-trucker-hat&bc=513661&feat=513661-gn1&csp=a",
+      "stock": 10,
+      "category": "Headwear",
+      "weight": "48g",
+      "price": 14.89
+    },
+    {
+      "id": 10,
+      "name": "Men's Winter Walker Snowshoes Boxed Set",
+      "url": "https://www.llbean.com/llb/shop/121581?page=men-s-winter-walker-snowshoes-boxed-set&bc=29-516714-509573&feat=509573-gn1&csp=f",
+      "stock": 10,
+      "category": "Snowshoes",
+      "weight": "4.68kg",
+      "price": 2.89
+    },
+    {
+      "id": 236268,
+      "name": "Umpqua Tippet Material, Pro Freshwater",
+      "url": "https://www.llbean.com/llb/shop/46228?page=umpqua-tippet-material-pro-freshwater&bc=29-507923&feat=507923-gn0&csp=f&attrvalue_0=light%20olive",
+      "stock": 10,
+      "category": "Fishing Tools",
+      "weight": "213g",
+      "price": 1.89
+    },
+    {
+      "id": 287369,
+      "name": "Women's O'Neill Epic II 3/2 Wet Suit",
+      "url": "https://www.llbean.com/llb/shop/80889?page=women-s-o-neill-epic-ii-3-2-wet-suit&bc=29-118-516655-506520&feat=506520-gn2&csp=f&attrvalue_0=black",
+      "stock": 10,
+      "category": "Protective Clothing",
+      "weight": "23g",
+      "price": 12.8
+    },
+    {
+      "id": 504630,
+      "name": "Ultralight Waterproof Pac Boots, Tall",
+      "url": "https://www.llbean.com/llb/shop/121249?page=ultralight-waterproof-pac-boots-tall&bc=32-516689-6715-502269&feat=502269-gn3&csp=s&attrvalue_0=deep%20olive",
+      "stock": 10,
+      "category": "Boots",
+      "weight": "89g",
+      "price": 512.89
+    },
+    {
+      "id": 505865,
+      "name": "Men's Bean's Comfort Fitness Walking Shoes, Suede Mesh",
+      "url": "https://www.llbean.com/llb/shop/122219?page=men-s-bean-s-comfort-fitness-walking-shoes-suede-mesh&bc=511742&feat=511742-gn0&csp=a&attrvalue_0=frost%20gray",
+      "stock": 10,
+      "category": "Shoes",
+      "weight": "10kg",
+      "price": 112.89
+    },
+    {
+      "id": 285178,
+      "name": "Thermacell Heated Insoles",
+      "url": "https://www.llbean.com/llb/shop/80185?page=thermacell-heated-insoles&bc=474-630&feat=630-gn1&csp=f&attrvalue_1=small&attrvalue_0=red",
+      "stock": 10,
+      "category": "Footwear Accessories",
+      "weight": "0.56kg",
+      "price": 122.89
+    },
+    {
+      "id": 9,
+      "name": "Cresta Wool Midweight Base Layer, Pants",
+      "url": "https://www.llbean.com/llb/shop/88448?page=cresta-wool-midweight-base-layer-pants&bc=515208&feat=515208-gn1&csp=a",
+      "stock": 10,
+      "category": "Baselayers",
+      "weight": "100g",
+      "price": 123.89
+    },
+    {
+      "id": 8,
+      "name": "Ridge Runner Midweight Quarter-Zip Hoodie, Camo",
+      "url": "https://www.llbean.com/llb/shop/117856?page=ridge-runner-midweight-quarter-zip-hoodie-camo&bc=12-26-593&feat=593-gn1&csp=f&attrvalue_0=mossy%20oak%20country",
+      "stock": 10,
+      "category": "Jackets",
+      "weight": "11kg",
+      "price": 152.89
+    },
+    {
+      "id": 7,
+      "name": "Carefree Unshrinkable Tee, Traditional Fit, Short-Sleeve Henley",
+      "url": "https://www.llbean.com/llb/shop/40645?page=carefree-unshrinkable-tee-traditional-fit-henley&bc=516600&feat=516600-gn1&csp=a",
+      "stock": 10,
+      "category": "Shirts",
+      "weight": "5kg",
+      "price": 142.89
+    },
+    {
+      "id": 6,
+      "name": "Kids' Katahdin Microfleece Pullover, Colorblock",
+      "url": "https://www.llbean.com/llb/shop/120342?page=kids-katahdin-microfleece-pullover-colorblock&bc=32-508925-516680-516681&feat=516681-gn3&csp=s",
+      "stock": 10,
+      "category": "Jackets",
+      "weight": "2.39g",
+      "price": 162.89
+    },
+    {
+      "id": 306106,
+      "name": "Women's Brooks Essential Running Vest",
+      "url": "https://www.llbean.com/llb/shop/118632?page=women-s-brooks-essential-running-vest&bc=12-27-509757&feat=509757-gn2&csp=f&attrvalue_0=nightlife",
+      "stock": 10,
+      "category": "Vests",
+      "weight": "203g",
+      "price": 102.89
+    },
+    {
+      "id": 506525,
+      "name": "Sportsman's Rolling Duffle, Extra-Large",
+      "url": "https://www.llbean.com/llb/shop/121977?page=sportsman-s-rolling-duffle-extra-large&bc=50-516673-903-506074&feat=506074-gn3&csp=f",
+      "stock": 10,
+      "category": "Bags",
+      "weight": "223g",
+      "price": 1.09
+    },
+    {
+      "id": 5,
+      "name": "L.L.Bean Linen Shirt, Slightly Fitted Short-Sleeve Stripe",
+      "url": "https://www.llbean.com/llb/shop/92663?page=l-l-bean-linen-shirt-slightly-fitted-short-sleeve-stripe&bc=12-26-589&feat=589-gn1&csp=f&attrvalue_0=rustic%20blue",
+      "stock": 10,
+      "category": "Shirts",
+      "weight": "3g",
+      "price": 12.89
+    },
+    {
+      "id": 289769,
+      "name": "SportDOG Brand Roy Gonia Special Dog Whistle",
+      "url": "https://www.llbean.com/llb/shop/84017?page=sportdog-brand-roy-gonia-special-dog-whistle&bc=29-507929&feat=507929-gn0&csp=f&attrvalue_0=orange",
+      "stock": 10,
+      "category": "Dog Accessories",
+      "weight": "5.9kg",
+      "price": 12.19
+    },
+    {
+      "id": 276990,
+      "name": "Kids' Bogs® Classic High Handles Boots",
+      "url": "https://www.llbean.com/llb/shop/73582?page=kids-bogs-classic-high-handles-boots&bc=508606-508610-508899&feat=508899-gn3&csp=a&attrvalue_0=black",
+      "stock": 10,
+      "category": "Boots",
+      "weight": "19kg",
+      "price": 12.09
+    },
+    {
+      "id": 507734,
+      "name": "Acadia National Park Patch",
+      "url": "https://www.llbean.com/llb/shop/122801?page=acadia-national-park-patch&bc=50-816-1098&feat=1098-gn3&csp=f&attrvalue_0=multi",
+      "stock": 10,
+      "category": "Patches",
+      "weight": "23g",
+      "price": 12.99
+    },
+    {
+      "id": 502305,
+      "name": "Signature Men's West Branch Versatile Tote",
+      "url": "https://www.llbean.com/llb/shop/120282?page=signature-men-s-west-branch-versatile-tote&bc=32-508925-516680-508928&feat=508928-gn3&csp=s",
+      "stock": 10,
+      "category": "Bags",
+      "weight": "4g",
+      "price": 12.89
+    },
+    {
+      "id": 303607,
+      "name": "L.L.Bean Summer Slip-On Sneakers",
+      "url": "https://www.llbean.com/llb/shop/116181?page=l-l-bean-summer-slip-on-sneakers&bc=32-516689-6715&feat=6715-gn2&csp=s&attrvalue_0=mountain%20red",
+      "stock": 10,
+      "category": "Shoes",
+      "weight": "12kg",
+      "price": 12.89
+    },
+    {
+      "id": 292337,
+      "name": "Women's Maine Hunting Shoes, 10\" Gore-Tex/Thinsulate",
+      "url": "https://www.llbean.com/llb/shop/85611?page=women-s-maine-hunting-shoes-10-gore-tex-thinsulate&bc=97-976&feat=976-gn1&csp=a&attrvalue_0=brown/brown",
+      "stock": 10,
+      "category": "Shoes",
+      "weight": "2.23g",
+      "price": 12.89
+    },
+    {
+      "id": 501920,
+      "name": "Men's Allagash Penny Loafers, Leather/Nubuck",
+      "url": "https://www.llbean.com/llb/shop/118242?page=men-s-allagash-penny-loafers-leather-nubuck&bc=474-629-506791-506764&feat=506764-gn3&csp=f&attrvalue_0=bean%20boot%20brown",
+      "stock": 10,
+      "category": "Shoes",
+      "weight": "15kg",
+      "price": 912.89
+    },
+    {
+      "id": 301277,
+      "name": "Scientific Anglers Nylon Tippet, 20-35 lb.",
+      "url": "https://www.llbean.com/llb/shop/92532?page=scientific-anglers-nylon-tippet-20-35-lb&bc=29-507923-1112&feat=1112-gn1&csp=f&attrvalue_0=clear",
+      "stock": 10,
+      "category": "Fishing Tools",
+      "weight": "2.3",
+      "price": 112.89
+    }
+  ]
+}
